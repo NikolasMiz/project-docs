@@ -13,3 +13,4 @@ install:
 script:
 - cd esterni/piano-di-progetto
 - lualatex --interaction=nonstopmode --c-style-errors -shell-escape piano-di-progett.tex
+- cat   /home/travis/.miktex/texmfs/data/miktex/log/lualatex.log
