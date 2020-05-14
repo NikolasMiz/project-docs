@@ -28,25 +28,29 @@ cache:
 
 jobs:
   include:
-    - stage: "PdP"
-      script:
+    #- stage: "PdP"
+      - script:
         - cd esterni/piano-di-progetto
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
         - cd ../..
-    - stage: "AdR"
-      script:
+        name: "PdP"
+   # - stage: "AdR"
+      - script:
         - cd esterni/analisi-dei-requisiti
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf analisi-dei-requisiti.tex
         - cd ../..
-    - stage: "PdQ"
-      script:
+        name: "AdR"
+
+   # - stage: "PdQ"
+      - script:
         - cd esterni/piano-di-qualifica
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
         - cd ../..
-    - stage: "Verbali esterni"
-      script:
+        name: "PdQ"
+    #- stage: "Verbali esterni"
+      - script:
         - cd esterni/verbali
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
         - cd ../..
+        name: "V E"
 
-        
