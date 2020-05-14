@@ -19,14 +19,16 @@ install:
   - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive.profile
   - cd ..
   - source ./texlive/texlive_install.sh
-  - sudo apt-get install texlive-full
-  - sudo apt-get install texlive-extra
+#  - sudo apt-get install texlive-full
 
 cache:
   directories:
     - /tmp/texlive
     - $HOME/.texlive
 
-script:
-  - cd esterni/piano-di-progetto
-  - latexmk -pdf piano-di-progetto.tex
+jobs:
+  include:
+    - stage: "PdP"
+      script:
+        - cd esterni/piano-di-progetto
+        - lualatex -pdf piano-di-progetto.tex
