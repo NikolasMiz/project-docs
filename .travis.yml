@@ -1,5 +1,5 @@
 language: generic
-
+sudo: required
 dist: bionic
 
 ## Uncomment the following lines if you require extra dependencies
@@ -19,6 +19,8 @@ install:
   - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive.profile
   - cd ..
   - source ./texlive/texlive_install.sh
+  - sudo apt-get texlive-full
+  - sudo apt-get install texlive-extra
 
 cache:
   directories:
