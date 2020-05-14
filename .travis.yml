@@ -32,3 +32,9 @@ jobs:
       script:
         - cd esterni/piano-di-progetto
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
+        - cd ../..
+    - stage: "AdR"
+      script:
+        - cd esterni/analisi-dei-requisiti
+        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf analisi-dei-requisiti.tex
+        - cd ../..
