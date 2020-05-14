@@ -38,3 +38,8 @@ jobs:
         - cd esterni/analisi-dei-requisiti
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf analisi-dei-requisiti.tex
         - cd ../..
+    - stage: "PdQ"
+      script:
+        - cd esterni/piano-di-qualifica
+        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
+        - cd ../..
