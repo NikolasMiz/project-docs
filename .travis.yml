@@ -48,3 +48,5 @@ jobs:
         - cd esterni/verbali
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
         - cd ../..
+
+        
