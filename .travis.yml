@@ -31,4 +31,4 @@ jobs:
     - stage: "PdP"
       script:
         - cd esterni/piano-di-progetto
-        - lualatex -pdf piano-di-progetto.tex
+        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
