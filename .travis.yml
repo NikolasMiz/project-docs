@@ -7,4 +7,4 @@ script:
   # Compiling only main.tex:
 - docker pull dxjoke/tectonic-docker
 - cd esterni/piano-di-progetto
-- docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic piano-di-progetto.tex"
+- docker run --mount src=$TRAVIS_BUILD_DIR/esterni/piano-di-progetto,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic piano-di-progetto.tex"
