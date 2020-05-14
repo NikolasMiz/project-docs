@@ -8,6 +8,7 @@ before_install:
 
 install:
 - sudo apt-get install miktex
+- miktexsetup finish
 
 script:
 - cd esterni/piano-di-progetto
