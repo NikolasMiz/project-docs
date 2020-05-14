@@ -16,7 +16,7 @@ install:
   - cd texlive
   - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_install.sh
   - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_packages
-  - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_packages
+  - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive.profile
   - cd ..
   - source ./texlive/texlive_install.sh
 
