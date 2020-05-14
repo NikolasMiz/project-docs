@@ -27,6 +27,7 @@ cache:
 
 jobs:
   include:
+    -stage: "Latexs"
 
     - script:
       - cd esterni/analisi-dei-requisiti
