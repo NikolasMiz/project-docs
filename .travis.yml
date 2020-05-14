@@ -34,21 +34,29 @@ jobs:
       - cd ../..
       name: "AdR"
 
-      - script:
-        - cd esterni/piano-di-progetto
-        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
-        - cd ../..
-        name: "PdP"
-        
-      - script:
-        - cd esterni/piano-di-qualifica
-        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
-        - cd ../..
-        name: "PdQ"
 
-      - script:
-        - cd esterni/verbali
-        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
-        - cd ../..
-        name: "Verbali esterni"
+    - script:
+      - cd esterni/glossario
+      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf glossario.tex
+      - cd ../..
+      name: "Glossario"
+    
+
+    - script:
+      - cd esterni/piano-di-progetto
+      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
+      - cd ../..
+      name: "PdP"
+      
+    - script:
+      - cd esterni/piano-di-qualifica
+      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
+      - cd ../..
+      name: "PdQ"
+
+    - script:
+      - cd esterni/verbali
+      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
+      - cd ../..
+      name: "Verbali esterni"
 
