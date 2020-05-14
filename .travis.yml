@@ -43,3 +43,8 @@ jobs:
         - cd esterni/piano-di-qualifica
         - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
         - cd ../..
+    - stage: "Verbali esterni"
+      script:
+        - cd esterni/verbali
+        - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
+        - cd ../..
