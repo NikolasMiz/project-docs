@@ -52,7 +52,7 @@ jobs:
       - cd interni/studio-di-fattibilita
       - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf studio-di-fattibilita.tex
       - cd ../..
-      name: "Studio di fattibilità"
+      name: "Studio di fattibilita"
       
     - script:
       - cd esterni/verbali
