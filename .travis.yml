@@ -1,68 +1,71 @@
 language: generic
 dist: bionic
-
 install:
-  - mkdir texlive
-  - cd texlive
-  - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_install.sh
-  - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_packages
-  - wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive.profile
-  - cd ..
-  - source ./texlive/texlive_install.sh
-
+- mkdir texlive
+- cd texlive
+- wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_install.sh
+- wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive_packages
+- wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/texlive/texlive.profile
+- cd ..
+- source ./texlive/texlive_install.sh
+- wget https://raw.githubusercontent.com/NikolasMiz/Dropbox-Uploader/master/dropbox_uploader.sh 
 cache:
   directories:
-    - /tmp/texlive
-    - $HOME/.texlive
-
+  - "/tmp/texlive"
+  - "$HOME/.texlive"
 jobs:
   include:
-
-    - script:
-      - cd esterni/analisi-dei-requisiti
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf analisi-dei-requisiti.tex
-      - cd ../..
-      name: "Analisi dei requisiti"
-
-    - script:
-      - cd esterni/glossario
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf glossario.tex
-      - cd ../..
-      name: "Glossario"
-
-    - script:
-      - cd interni/norme-di-progetto
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf norme-di-progetto.tex
-      - cd ../..
-      name: "Norme di progetto"
+  - script:
+    - cd esterni/analisi-dei-requisiti
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf analisi-dei-requisiti.tex
+    - ./dropbox_uploader.sh upload analisi-dei-requisiti.pdf ${TRAVIS_BRANCH}/esterni/analisi-dei-requisiti.pdf
+    - cd ../..
+    name: Analisi dei requisiti
+  - script:
+    - cd esterni/glossario
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf glossario.tex
+    - cd ../..
+    name: Glossario
+  - script:
+    - cd interni/norme-di-progetto
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf norme-di-progetto.tex
+    - cd ../..
+    name: Norme di progetto
+  - script:
+    - cd esterni/piano-di-progetto
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf piano-di-progetto.tex
+    - cd ../..
+    name: Piano di progetto
+  - script:
+    - cd esterni/piano-di-qualifica
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf piano-di-qualifica.tex
+    - cd ../..
+    name: Piano di qualifica
+  - script:
+    - cd interni/studio-di-fattibilita
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf studio-di-fattibilita.tex
+    - cd ../..
+    name: Studio di fattibilita
+  - script:
+    - cd esterni/verbali
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf *.tex
+    - cd ../..
+    name: Verbali esterni
+  - script:
+    - cd interni/verbali
+    - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
+      -pdf *.tex
+    - cd ../..
+    name: Verbali interni
     
-    - script:
-      - cd esterni/piano-di-progetto
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-progetto.tex
-      - cd ../..
-      name: "Piano di progetto"
-
-    - script:
-      - cd esterni/piano-di-qualifica
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf piano-di-qualifica.tex
-      - cd ../..
-      name: "Piano di qualifica"
-
-    - script:
-      - cd interni/studio-di-fattibilita
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf studio-di-fattibilita.tex
-      - cd ../..
-      name: "Studio di fattibilita"
-      
-    - script:
-      - cd esterni/verbali
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
-      - cd ../..
-      name: "Verbali esterni"
-
-    - script:
-      - cd interni/verbali
-      - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape -pdf *.tex
-      - cd ../..
-      name: "Verbali interni"
-
+before_install:
+- wgethttps://raw.githubusercontent.com/NikolasMiz/Dropbox-Uploader/master/dropbox_uploader.enc
+- openssl aes-256-cbc -K $encrypted_cd65562716f9_key -iv $encrypted_cd65562716f9_iv
+  -in dropbox_uploader.enc -out dropbox_uploader -d
