@@ -76,6 +76,7 @@ jobs:
     - cd interni/verbali
     - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
       -pdf *.tex
+    - ls
     - cd ../..
     - "./dropbox_uploader.sh upload interni/verbali/*.pdf
       ${TRAVIS_BRANCH}/interni/verbali/"
