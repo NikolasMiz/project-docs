@@ -70,7 +70,7 @@ jobs:
       -pdf *.tex
     - cd ../..
     - "./dropbox_uploader.sh upload esterni/verbali/*.pdf
-      ${TRAVIS_BRANCH}/esterni/verbali.pdf"
+      ${TRAVIS_BRANCH}/esterni/verbali/*.pdf"
     name: Verbali esterni
   - script:
     - cd interni/verbali
@@ -78,7 +78,7 @@ jobs:
       -pdf *.tex
     - cd ../..
     - "./dropbox_uploader.sh upload interni/verbali/*.pdf
-      ${TRAVIS_BRANCH}/interni/verbali.pdf"
+      ${TRAVIS_BRANCH}/interni/verbali/*.pdf"
     name: Verbali interni
 before_install:
 - wget https://raw.githubusercontent.com/NikolasMiz/Dropbox-Uploader/master/dropbox_uploader.enc
