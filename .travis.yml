@@ -20,9 +20,8 @@ jobs:
     - cd esterni/analisi-dei-requisiti
     - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
       -pdf analisi-dei-requisiti.tex
-    - ls
-    - ./../../dropbox_uploader.sh upload analisi-dei-requisiti.pdf ${TRAVIS_BRANCH}/esterni/analisi-dei-requisiti.pdf
     - cd ../..
+    - ./dropbox_uploader.sh upload esterni/analisi-dei-requisiti/sanalisi-dei-requisiti.pdf ${TRAVIS_BRANCH}/esterni/analisi-dei-requisiti.pdf
     name: Analisi dei requisiti
   - script:
     - cd esterni/glossario
