@@ -21,7 +21,7 @@ jobs:
     - lualatex --synctex=1 --interaction=nonstopmode --c-style-errors -shell-escape
       -pdf analisi-dei-requisiti.tex
     - cd ../..
-    - "./dropbox_uploader.sh upload esterni/analisi-dei-requisiti/sanalisi-dei-requisiti.pdf
+    - "./dropbox_uploader.sh upload esterni/analisi-dei-requisiti/analisi-dei-requisiti.pdf
       ${TRAVIS_BRANCH}/esterni/analisi-dei-requisiti.pdf"
     name: Analisi dei requisiti
   - script:
