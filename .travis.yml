@@ -64,5 +64,4 @@ jobs:
     - cd interni/verbali
     - for f in *.tex; do lualatex --synctex=1 --interaction=nonstopmode -shell-escape $f; done
     - cd ../..
-    
     name: Verbali interni
